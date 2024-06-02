@@ -1,10 +1,11 @@
 import { Card } from './card'
+import { CardInformation } from './card/information'
 
 export const Cards = () => {
   return (
     <section className="flex w-full flex-col items-center gap-4 lg:flex-row">
-      <Card title="Informações do IP" />
-      <Card title="mapa" />
+      <CardInformation />
+      <Card title="MAP" />
     </section>
   )
 }
