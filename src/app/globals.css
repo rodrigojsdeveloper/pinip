@@ -16,7 +16,6 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 
-  font-weight: 400;
   font-synthesis: none;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
@@ -32,4 +31,7 @@ html {
 body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
+
+  color: #262626;
+  background-color: #FFFFFF;
 }
