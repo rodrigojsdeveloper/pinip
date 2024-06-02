@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import dynamic from 'next/dynamic'
 import { Card } from '.'
 import { InformationContext } from '@/contexts/information.context'
+import { Loading } from '../loading'
 
 const DynamicMapContainer = dynamic(
   () => import('react-leaflet').then((mod) => mod.MapContainer),
@@ -26,14 +27,16 @@ const DynamicFlyLocation = dynamic(() => import('../fly-location'), {
 })
 
 export const CardMap = () => {
-  const { information, MAP_CENTER, MIN_ZOOM, MAX_ZOOM, markerIcon } =
+  const { information, MAP_CENTER, MIN_ZOOM, MAX_ZOOM, markerIcon, isLoading } =
     useContext(InformationContext)
 
   return (
     <Card title="MAP">
-      {typeof window !== 'undefined' &&
-      information.latitude &&
-      information.longitude ? (
+      {isLoading ? (
+        <Loading />
+      ) : typeof window !== 'undefined' &&
+        information.latitude &&
+        information.longitude ? (
         <DynamicMapContainer
           center={MAP_CENTER}
           zoom={MIN_ZOOM}

@@ -40,12 +40,15 @@ export const InformationContextProvider = ({ children }: PropsWithChildren) => {
   const [information, setInformation] = useState<InformationProps>(
     {} as InformationProps,
   )
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
+    setIsLoading(true)
     api
       .get('')
       .then((res) => setInformation(res.data))
       .catch((err) => console.error(err))
+    setIsLoading(false)
   }, [])
 
   const FlyLocation = dynamic(() => import('../components/fly-location'), {
@@ -61,6 +64,7 @@ export const InformationContextProvider = ({ children }: PropsWithChildren) => {
     MAX_ZOOM,
     MAP_CENTER,
     ANIMATION_DURATION,
+    isLoading,
   }
 
   return (

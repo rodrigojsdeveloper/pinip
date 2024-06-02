@@ -80,4 +80,5 @@ export interface InformationContextDataProps {
   MAX_ZOOM: number
   MAP_CENTER: LatLngTuple
   ANIMATION_DURATION: number
+  isLoading: boolean
 }
