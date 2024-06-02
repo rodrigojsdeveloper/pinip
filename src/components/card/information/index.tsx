@@ -82,7 +82,7 @@ export const CardInformation = () => {
                 <h3 className="text-xs uppercase text-neutral-600">FLAG</h3>
                 <Link
                   href={information.flag ?? ''}
-                  className="text-base text-neutral-800 underline hover:no-underline"
+                  className="rounded-md p-0.5 text-base text-neutral-800 underline hover:no-underline focus-visible:ring-2 focus-visible:ring-neutral-800"
                   target="_blank"
                 >
                   {information.flag}

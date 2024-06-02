@@ -47,7 +47,11 @@ export const Search = () => {
           {...register('ip')}
         />
         <hr className="h-4/5 w-0.5 rounded-xl bg-neutral-800" />
-        <button className="h-full px-4" type="submit" aria-label="Search Icon">
+        <button
+          className="h-full px-4 duration-200 focus-visible:bg-neutral-200"
+          type="submit"
+          aria-label="Search Icon"
+        >
           <SearchIcon className="size-7 text-neutral-800" />
         </button>
       </form>
