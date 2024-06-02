@@ -17,7 +17,9 @@ export const Card = ({ title, children }: PropsWithChildren<CardProps>) => {
         </ul>
       </div>
 
-      <div className="size-[400px]">{children}</div>
+      <div className="flex h-96 flex-col gap-4 overflow-auto p-2">
+        {children}
+      </div>
     </div>
   )
 }
