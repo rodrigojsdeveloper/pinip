@@ -1,4 +1,5 @@
 import { Icon, LatLngTuple } from 'leaflet'
+import { ComponentType } from 'react'
 
 export interface InformationProps {
   ip: string
@@ -67,7 +68,7 @@ export interface FlyToLocationProps {
 
 export interface InformationContextDataProps {
   information: InformationProps
-  FlyToLocation: () => null
+  FlyLocation: ComponentType<{ latitude: number; longitude: number }>
   markerIcon: Icon<{
     iconUrl: string
     iconSize: [number, number]

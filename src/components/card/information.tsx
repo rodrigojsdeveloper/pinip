@@ -29,7 +29,7 @@ export const CardInformation = () => {
             </p>
           </li>
         </ul>
-        <ul className="grid grid-cols-3 gap-4">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <li>
             <h3 className="text-xs uppercase text-neutral-600">
               CONTINENT NAME
@@ -69,7 +69,7 @@ export const CardInformation = () => {
             </p>
           </li>
         </ul>
-        <ul className="grid grid-cols-2 gap-4">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <li>
             <h3 className="text-xs uppercase text-neutral-600">LATITUDE</h3>
             <p className="text-base text-neutral-800">{information.latitude}</p>
@@ -81,7 +81,7 @@ export const CardInformation = () => {
             </p>
           </li>
         </ul>
-        <ul className="grid grid-cols-3 gap-4">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <li>
             <h3 className="text-xs uppercase text-neutral-600">CALLING CODE</h3>
             <p className="text-base text-neutral-800">
@@ -123,9 +123,12 @@ export const CardInformation = () => {
           <h2 className="text-sm uppercase text-neutral-800">LANGUAGES</h2>
         </div>
 
-        <ul className="grid grid-cols-3 gap-4">
+        <ul className="grid grid-cols-1 gap-4">
           {information.languages?.map(({ name, native, code }, index) => (
-            <li key={`langague-${index}`}>
+            <li
+              key={`langague-${index}`}
+              className="grid grid-cols-1 gap-4 sm:grid-cols-3"
+            >
               <div>
                 <h3 className="text-xs uppercase text-neutral-600">NAME</h3>
                 <p className="text-base text-neutral-800">{name}</p>
@@ -149,7 +152,7 @@ export const CardInformation = () => {
           <h2 className="text-sm uppercase text-neutral-800">TIME ZONE</h2>
         </div>
 
-        <ul className="grid grid-cols-3 gap-4">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <li>
             <h3 className="text-xs uppercase text-neutral-600">NAME</h3>
             <p className="text-base text-neutral-800">
@@ -189,7 +192,7 @@ export const CardInformation = () => {
           <h2 className="text-sm uppercase text-neutral-800">TIME ZONE</h2>
         </div>
 
-        <ul className="grid grid-cols-3 gap-4">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <li>
             <h3 className="text-xs uppercase text-neutral-600">NAME</h3>
             <p className="text-base text-neutral-800">
@@ -229,7 +232,7 @@ export const CardInformation = () => {
           <h2 className="text-sm uppercase text-neutral-800">ASN</h2>
         </div>
 
-        <ul className="grid grid-cols-2 gap-4">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <li>
             <h3 className="text-xs uppercase text-neutral-600">ASN</h3>
             <p className="text-base text-neutral-800">{information.asn?.asn}</p>
@@ -267,7 +270,7 @@ export const CardInformation = () => {
           <h2 className="text-sm uppercase text-neutral-800">COMPANY</h2>
         </div>
 
-        <ul className="grid grid-cols-2 gap-4">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <li>
             <h3 className="text-xs uppercase text-neutral-600">NAME</h3>
             <p className="text-base text-neutral-800">
