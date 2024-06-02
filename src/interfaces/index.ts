@@ -81,4 +81,6 @@ export interface InformationContextDataProps {
   MAP_CENTER: LatLngTuple
   ANIMATION_DURATION: number
   isLoading: boolean
+  handleInformation: ({ ip }: { ip: string }) => void
+  error: string | null
 }

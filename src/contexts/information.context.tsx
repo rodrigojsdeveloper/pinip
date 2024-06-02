@@ -41,19 +41,42 @@ export const InformationContextProvider = ({ children }: PropsWithChildren) => {
     {} as InformationProps,
   )
   const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    setIsLoading(true)
-    api
-      .get('')
-      .then((res) => setInformation(res.data))
-      .catch((err) => console.error(err))
-    setIsLoading(false)
-  }, [])
+  const fetchInformation = async () => {
+    try {
+      setIsLoading(true)
+      const res = await api.get(`?api-key=${process.env.NEXT_APP_API_KEY}`)
+      setInformation(res.data)
+    } catch (err) {
+      console.error(err)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleInformation = async ({ ip }: { ip: string }) => {
+    try {
+      setError(null)
+      setIsLoading(true)
+      const res = await api.get(
+        `/${ip}?api-key=${process.env.NEXT_APP_API_KEY}`,
+      )
+      setInformation(res.data)
+    } catch (err) {
+      setError('IP address does not exist')
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   const FlyLocation = dynamic(() => import('../components/fly-location'), {
     ssr: false,
   })
+
+  useEffect(() => {
+    fetchInformation()
+  }, [])
 
   const informationContextData: InformationContextDataProps = {
     information,
@@ -65,6 +88,8 @@ export const InformationContextProvider = ({ children }: PropsWithChildren) => {
     MAP_CENTER,
     ANIMATION_DURATION,
     isLoading,
+    handleInformation,
+    error,
   }
 
   return (
