@@ -1,23 +1,13 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import Link from 'next/link'
 import { Card } from '.'
-import { api } from '@/services/api'
-import { InformationProps } from '@/interfaces'
 import { CircleAlert } from 'lucide-react'
+import { InformationContext } from '@/contexts/information.context'
 
 export const CardInformation = () => {
-  const [information, setInformation] = useState<InformationProps>(
-    {} as InformationProps,
-  )
-
-  useEffect(() => {
-    api
-      .get('')
-      .then((res) => setInformation(res.data))
-      .catch((err) => err)
-  }, [])
+  const { information } = useContext(InformationContext)
 
   return (
     <Card title="IP INFORMATION">

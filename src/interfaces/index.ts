@@ -1,3 +1,5 @@
+import { Icon, LatLngTuple } from 'leaflet'
+
 export interface InformationProps {
   ip: string
   is_eu: boolean
@@ -55,4 +57,26 @@ export interface InformationProps {
     blocklists: []
   }
   count: string
+}
+
+export interface FlyToLocationProps {
+  center: LatLngTuple
+  zoom: number
+  animationDuration: number
+}
+
+export interface InformationContextDataProps {
+  information: InformationProps
+  FlyToLocation: () => null
+  markerIcon: Icon<{
+    iconUrl: string
+    iconSize: [number, number]
+    iconAnchor: [number, number]
+    popupAnchor: [number, number]
+  }>
+  ZOOM: number
+  MIN_ZOOM: number
+  MAX_ZOOM: number
+  MAP_CENTER: LatLngTuple
+  ANIMATION_DURATION: number
 }

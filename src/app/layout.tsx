@@ -2,6 +2,7 @@ import { PropsWithChildren } from 'react'
 import type { Metadata } from 'next'
 import { Kanit } from 'next/font/google'
 import { cn } from '@/utils/cn'
+import { Providers } from '@/contexts'
 import './globals.css'
 
 const kanit = Kanit({
@@ -19,7 +20,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body className={cn('px-4 py-24 antialiased sm:px-6', kanit.variable)}>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   )
