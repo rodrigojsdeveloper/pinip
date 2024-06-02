@@ -52,7 +52,7 @@ export interface InformationProps {
     is_known_abuser: boolean
     is_threat: boolean
     is_bogon: boolean
-    blocklists: any[]
+    blocklists: []
   }
   count: string
 }

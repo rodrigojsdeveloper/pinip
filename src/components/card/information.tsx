@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
+import Link from 'next/link'
 import { Card } from '.'
 import { api } from '@/services/api'
 import { InformationProps } from '@/interfaces'
@@ -18,8 +18,6 @@ export const CardInformation = () => {
       .then((res) => setInformation(res.data))
       .catch((err) => err)
   }, [])
-
-  console.log(information)
 
   return (
     <Card title="IP INFORMATION">
@@ -118,7 +116,13 @@ export const CardInformation = () => {
         <ul className="grid grid-cols-1 gap-4">
           <li>
             <h3 className="text-xs uppercase text-neutral-600">FLAG</h3>
-            <p className="text-base text-neutral-800">{information.flag}</p>
+            <Link
+              href={information.flag ?? ''}
+              className="text-base text-neutral-800 underline hover:no-underline"
+              target="_blank"
+            >
+              {information.flag}
+            </Link>
           </li>
         </ul>
       </section>
@@ -131,20 +135,20 @@ export const CardInformation = () => {
 
         <ul className="grid grid-cols-3 gap-4">
           {information.languages?.map(({ name, native, code }, index) => (
-            <>
-              <li key={`${name}-${index}`}>
+            <li key={`langague-${index}`}>
+              <div>
                 <h3 className="text-xs uppercase text-neutral-600">NAME</h3>
                 <p className="text-base text-neutral-800">{name}</p>
-              </li>
-              <li key={`${native}-${index}`}>
+              </div>
+              <div>
                 <h3 className="text-xs uppercase text-neutral-600">NATIVE</h3>
                 <p className="text-base text-neutral-800">{native}</p>
-              </li>
-              <li key={`${code}-${index}`}>
+              </div>
+              <div>
                 <h3 className="text-xs uppercase text-neutral-600">CODE</h3>
                 <p className="text-base text-neutral-800">{code}</p>
-              </li>
-            </>
+              </div>
+            </li>
           ))}
         </ul>
       </section>
